@@ -1,27 +1,62 @@
-## Devvit React Starter
+# The Subreddit Vibe Check
 
-A starter to build web applications on Reddit's developer platform
+A Reddit sentiment-analysis dashboard that fetches the top Hot posts from a selected subreddit and analyzes the sentiment of their titles.
 
-- [Devvit](https://developers.reddit.com/): A way to build and deploy immersive games on Reddit
-- [Vite](https://vite.dev/): For compiling the webView
-- [React](https://react.dev/): For UI
-- [Hono](https://hono.dev/): For backend logic
-- [Tailwind](https://tailwindcss.com/): For styles
-- [TypeScript](https://www.typescriptlang.org/): For type safety
+## Features
 
-## Getting Started
+- Search for any public subreddit
+- Fetch up to 50 Hot posts
+- Client-side sentiment analysis of post titles
+- Positive, Neutral, and Negative classification
+- Overall sentiment counts and percentages
+- Individual sentiment result for every post
+- Loading and error handling
+- Reddit API integration using Devvit
 
-> Make sure you have Node 22 downloaded on your machine before running!
+## Tech Stack
 
-1. Run `npm create devvit@latest --template=react`
-2. Go through the installation wizard. You will need to create a Reddit account and connect it to Reddit developers
-3. Copy the command on the success page into your terminal
+- React
+- TypeScript
+- Reddit Devvit
+- Reddit API
+- Sentiment.js
+- Express
+- Vite
+- Tailwind CSS
 
-## Commands
+## How It Works
 
-- `npm run dev`: Starts a development server where you can develop your application live on Reddit.
-- `npm run build`: Builds your client and server projects
-- `npm run deploy`: Uploads a new version of your app
-- `npm run launch`: Publishes your app for review
-- `npm run login`: Logs your CLI into Reddit
-- `npm run type-check`: Type checks, lints, and prettifies your app
+1. The user enters a subreddit such as `technology`.
+2. The React frontend sends the subreddit name to the Devvit server.
+3. The server fetches up to 50 Hot posts using Reddit's API.
+4. The titles are returned to the client.
+5. Sentiment.js analyzes each title.
+6. Each post is classified as Positive, Neutral, or Negative.
+7. The dashboard displays the overall community vibe and individual post sentiment.
+
+## Sentiment Classification
+
+- Score greater than 0 → Positive
+- Score equal to 0 → Neutral
+- Score less than 0 → Negative
+
+## Live Demo
+
+The application is currently running as a Reddit Devvit playtest:
+
+https://www.reddit.com/r/vibe_check_analy_dev3/?playtest=vibe-check-analyzer
+
+Note: The Devvit playtest may require Reddit login/developer access.
+
+## Reddit API Note
+
+Reddit's current developer workflow requires authenticated API access. This project therefore uses Reddit's Devvit platform to fetch subreddit Hot posts instead of making an unauthenticated request directly from the browser.
+
+Public Devvit distribution requires Reddit's publishing and app-review process.
+
+## Running Locally
+
+Install dependencies:
+
+```bash
+npm install
