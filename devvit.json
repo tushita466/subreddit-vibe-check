@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
+  "name": "vibe-check-analyzer",
+
+  "permissions": {
+    "reddit": true
+  },
+
+  "post": {
+    "dir": "dist/client",
+    "entrypoints": {
+      "default": {
+        "entry": "splash.html",
+        "height": "tall"
+      },
+      "game": {
+        "entry": "game.html",
+        "height": "tall"
+      }
+    }
+  },
+
+  "server": {
+    "dir": "dist/server",
+    "entry": "index.cjs"
+  },
+
+  "menu": {
+    "items": [
+      {
+        "label": "Create Vibe Check",
+        "description": "Create the Subreddit Vibe Check dashboard post",
+        "forUserType": "moderator",
+        "location": "subreddit",
+        "endpoint": "/internal/menu/post-create"
+      }
+    ]
+  },
+
+  "dev": {
+    "subreddit": "vibecheckdemo26"
+  },
+
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
+  }
+}
